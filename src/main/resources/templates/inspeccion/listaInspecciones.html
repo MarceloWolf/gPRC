@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+	<meta charset="UTF-8" />
+	<title>Vtv</title>
+	<link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="/index">Vtv</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</nav>
+		<div class="alert alert-warning alert-dismissable" th:if="${warning != null}">
+			<label th:text="${warning}"></label>
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>
+	</header>
+
+	<div class="container">
+		<h1 th:text="${titulo}"></h1>
+
+	</div>
+
+	<div class="container">
+
+
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Nº de inspeccion</th>
+					<th scope="col">Fecha</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Estado del pago</th>
+					<th scope="col">Nombre del inspector</th>
+					<th scope="col">Apellido del inspector</th>
+					<th scope="col">DNI inspector</th>
+					<th scope="col">Dominio vehiculo</th>
+					<th scope="col">Modelo vehiculo</th>
+					<th scope="col">Marca vehiculo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="li:${lista}">
+
+					<th scope="row" th:text="${li.nroDeInspeccion}"></th>
+					<th scope="row" th:text="${li.fecha}"></th>
+					<th scope="row" th:text="${li.estado}"></th>
+					<th scope="row" th:text="${li.estadoPagado}"></th>
+					<th scope="row" th:text="${li.inspector.nombre}"></th>
+					<th scope="row" th:text="${li.inspector.apellido}"></th>
+					<th scope="row" th:text="${li.inspector.dni}"></th>
+					<th scope="row" th:text="${li.vehiculo.dominio}"></th>
+					<th scope="row" th:text="${li.vehiculo.modelo}"></th>
+					<th scope="row" th:text="${li.vehiculo.marca}"></th>
+					
+				
+					
+
+				</tr>
+
+			</tbody>
+		</table>
+
+
+	</div>
+
+
+	<footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
+		<div class="container">
+			<p>Copyright Nahuel Ruiz 2021</p>
+		</div>
+
+		<script type="text/javascript" th:src="@{vendor/bootstrap/jquery/jquery.slim.min.js}"></script>
+		<script type="text/javascript" th:src="@{vendor/bootstrap/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{vendor/bootstrap/js/bootstrap.min.js}"></script>
+	</footer>
+
+</body>
+
+</html>

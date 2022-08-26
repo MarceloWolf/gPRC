@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Banca UNLa</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/index">Inicio</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+
+					<li class ="nav-item dropdown">
+						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+							data-toggle="dropdown" href="#" id="navbarDropdownBlog">Ingresar</a>
+						<div aria-labelledby="navbarDropdownBlog" class="dropdown-menu dropdown-menu-right">
+							
+							
+							
+						</div>
+					</li>
+					<li class ="nav-item dropdown">
+						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+							data-toggle="dropdown" href="#" id="navbarDropdownBlog">Seleccionar una opción</a>
+						<div aria-labelledby="navbarDropdownBlog" class="dropdown-menu dropdown-menu-right">
+							
+							<a class="dropdown-item"  th:href="@{/clienteBanca/}">Crear Cliente Banca</a>
+							<a class="dropdown-item"  th:href="@{/tarjetaCredito/}">Crear Tarjeta Crédito</a>
+							<a class="dropdown-item"  th:href="@{/tarjetaDebito/}">Crear Tarjeta Débito</a>
+							<a class="dropdown-item" th:href="@{/clienteBanca/lista}">Lista de clientes</a>
+							
+						</div>
+					</li>
+				
+					
+			</div>
+		
+	</nav>
+
+	<header>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<!-- Slide One - Set the background image for this slide in the line below -->
+				<div class="carousel-item active"
+					style="background-image: url('https://www.infobae.com/new-resizer/XG7P9LyBD63GbXj1CYR_A17hrq0=/768x432/filters:format(jpg):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/09/18131715/Personas-usando-facebook-tarjetas-de-credito-5.jpg')">
+					<div class="carousel-caption d-none d-md-block">
+					</div>
+				</div>
+				<!-- Slide Two - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('https://www.estudiaradistancia.com.ar/img/article/las-2-mejores-universidades-para-estudiar-a-distancia-informatica-en-argentina')">
+					<div class="carousel-caption d-none d-md-block">
+					</div>
+				</div>
+				<!-- Slide Three - Set the background image for this slide in the line below -->
+				
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+			
+		</div>
+	</header>
+	
+
+
+	<div class="container" id="services">
+		<h1 class="my-4" >La Banca de UNLa</h1>
+		
+
+
+	</div>	
+	
+	<div class="container" id="documentacion">
+		<h1 class="my-4" >Sistema de gestión de carga de tarjetas por cliente</h1>
+
+						
+<p>En "seleccionar opción" puede agregar a clientes</p>
+<p>Una vez que un cliente esté creado puede asociarlo a sus tarjetas</p>
+<p>La carga de tarjetas y clientes es para ser utilizada por la aplicación UNLa Libre</p>
+<p></p>
+
+	</div>
+
+	<br>
+	<br>
+
+
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Marcelo Wolf 2021</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

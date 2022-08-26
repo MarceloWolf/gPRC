@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="UTF-8" />
+	<title>Vtv</title>
+	<link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/vendor/estilos.css}">
+</head>
+
+<body>
+	<header th:fragment="header">
+		<header th:fragment="header">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="/index">Inicio</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+
+						<li class="nav-item">
+							<a class="nav-link" href="/index">Banca UNLa</a>
+						</li>
+
+				</div>
+				</li>
+				</ul>
+				</div>
+			</nav>
+			<div class="alert alert-success alert-dismissable" th:if="${success != null}">
+				<label th:text="${success}"></label>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+			</div>
+		</header>
+	</header>
+	
+	
+	
+	
+	
+	<div class="container" id="advanced-search-form">
+        <h2>Realizar inspeccion</h2>
+        <form action="#" th:action="@{/inspeccion/}" th:object="${inspeccion}" method="post">
+            <div class="form-group">
+                <label for="first-name">Número de inspección</label>
+                <input type="number" class="form-control" placeholder="Nº inspección" id="first-name" th:field="*{nroDeInspeccion}">
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('nroDeInspeccion')}"
+					th:errors="*{nroDeInspeccion}" >
+				</small> 
+            </div>
+            <div class="form-group">
+                <label for="last-name">Fecha</label>
+                <input type="date" class="form-control" placeholder="Last name" id="last-name" th:field="*{fecha}">
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('fecha')}"
+					th:errors="*{fecha}" >
+				</small> 
+            </div>
+            <div class="form-group">
+                <label for="number">Estado del pago</label>
+                <select class="form-control" th:field="*{estadoPagado}">
+				<option th:value="true" th:text="Pagado"/>
+				<option th:value="false" th:text="No+' '+Pagado"/>
+				</select>
+            </div>
+            <div class="form-group">
+                <label for="country">Estado</label>
+                <select class="form-control" th:field="*{estado}" id="estado">
+				<option th:value="Apto" th:text="Apto"/>
+				<option th:value="Rechazado" th:text="Rechazado"/>
+				<option th:value="Condicional" th:text="Condicional"/>
+				</select>   
+            </div>
+            
+            <div class="form-group">
+                <label for="country">Inspector</label>
+                <select class="form-control" th:field="*{inspector}">
+							<option th:each="insp:${inspectores}" th:value="${insp.idPersona}" th:text="${insp.nombre} +' '+${insp.apellido}+' '+${insp.dni}" />
+						</select>	
+            </div>
+            <div class="form-group">
+                <label for="country">Vehiculo</label>
+                <select class="form-control" th:field="*{vehiculo}">
+							<option th:each="vehi:${vehiculos}" th:value="${vehi.idVehiculo}" th:text="${vehi.dominio} +' '+${vehi.marca}+' '+${vehi.modelo}" />
+						</select>	 
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('vehiculo')}"
+							th:errors="*{vehiculo}" >
+						</small>
+            </div>
+       
+            <div class="clearfix"></div>
+            <button type="submit" class="btn btn-info btn-lg btn-responsive" id="search"> <span class="glyphicon glyphicon-search"></span>Enviar</button>
+        </form>
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+	
+	
+	<footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
+		<div class="container">
+		<p>Copyright Nahuel Ruiz 2021</p>
+		</div>
+		
+		<script type="text/javascript" th:src="@{vendor/bootstrap/jquery/jquery.slim.min.js}"></script>
+		<script type="text/javascript" th:src="@{vendor/bootstrap/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{vendor/bootstrap/js/bootstrap.min.js}"></script>
+	</footer>
+	
+</body>
+</html>

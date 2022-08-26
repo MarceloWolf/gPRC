@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="UTF-8" />
+	<title>Banca</title>
+	
+
+	<link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/vendor/estilos.css}">
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js}"></script>
+    <script th:src="@{http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js}"></script>
+</head>
+
+<body class="prueba">
+	<header th:fragment="header">
+		<header th:fragment="header">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="/index">Inicio</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+
+						<li class="nav-item">
+							<a class="nav-link" href="/index">Banca</a>
+						</li>
+
+				</div>
+				</li>
+				</ul>
+				</div>
+			</nav>
+			<div class="alert alert-success alert-dismissable" th:if="${success != null}">
+				<label th:text="${success}"></label>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+			</div>
+		</header>
+	</header>
+
+
+		
+	
+		
+		<form id="msform" action="#" th:action="@{/tarjetaCredito/}" th:object="${tarjetaCredito}" method="post">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Paso 1</li>
+    <li>Paso 2</li>
+    <li>Paso 3</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">Crear Tarjeta de Crédito</h2>
+    <h3 class="fs-subtitle">Ingresar Número</h3>
+  
+    
+    
+					
+    
+    <p>
+    <input type="number" th:field="*{numero}" placeholder="Número" />
+       <small class="form-text text-danger" th:if="${#fields.hasErrors('numero')}"
+					th:errors="*{numero}" >		</small>
+ </p>
+    <input type="button" name="next" class="next action-button" value="Siguiente" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Crear Tarjeta de Crédito</h2>
+    <h3 class="fs-subtitle">Ingrese los datos de la tarjeta</h3>
+    <input type="text" th:field="*{empresa}" placeholder="Empresa emisora"/>
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('empresa')}"
+					th:errors="*{empresa}" >
+				</small>
+					
+    <input type="number" th:field="*{mes}" placeholder="Mes" />
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('mes')}"
+					th:errors="*{mes}" >
+				</small>
+					  <input type="number" th:field="*{anio}" placeholder="Año" />
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('anio')}"
+					th:errors="*{anio}" >
+				</small>
+				  <input type="number" th:field="*{codSeg}" placeholder="Código de seguridad" />
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('codSeg')}"
+					th:errors="*{codSeg}" >
+				</small>
+				 
+						<select th:field="*{clienteBanca}">
+							<option th:each="cli:${clienteBanca}" th:value="${cli.dniPersona}" th:text="${cli.nombre} +' '+${cli.apellido}+' '+${cli.dniPersona}" />
+						</select>	
+				  <input type="number" th:field="*{limiteMensual}" placeholder="Límite mensual" />
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('limiteMensual')}"
+					th:errors="*{limiteMensual}" >
+				</small>
+    <input type="button" name="previous" class="previous action-button" value="Anterior" />
+    <input type="button" name="next" class="next action-button" value="Siguiente" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Crear tarjeta de crédito</h2>
+    
+    <input type="button" name="previous" class="previous action-button" value="Anterior" />
+     <input type="submit" class="next action-button" />
+   
+  </fieldset>
+</form>
+
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+
+	
+	<footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
+		<div class="container">
+		<p>Copyright Marcelo Wolf 2021</p>
+		</div>
+		<script type="text/javascript" th:src="@{/vendor/jquery/prueba.js}"></script>
+		<script type="text/javascript" th:src="@{vendor/bootstrap/jquery/jquery.slim.min.js}"></script>
+		<script type="text/javascript" th:src="@{vendor/bootstrap/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{vendor/bootstrap/js/bootstrap.min.js}"></script>
+	</footer>
+	
+	   
+
+	
+</body>
+</html>
